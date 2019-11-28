@@ -78,6 +78,35 @@ export default {
       'author/_slug',
     ],
 	fallback: true	
-  }
+  },
+  /*
+  ** Handle external assets
+  */
+  workbox: {
+    runtimeCaching: [
+      {
+        urlPattern: 'https://knowzone.ghostzones.ml/.*',
+        handler: 'cacheFirst',
+        method: 'GET',
+        strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+      },
+      {
+        urlPattern: 'http://res-3.cloudinary.com/.*',
+        handler: 'cacheFirst',
+        method: 'GET',
+        strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+      },
+      {
+        urlPattern: 'https://images.unsplash.com/.*',
+        method: 'GET',
+        strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+      },
+      {
+        urlPattern: '/.*',
+        method: 'GET',
+        strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+      }
+    ]
+  },
    
 }
