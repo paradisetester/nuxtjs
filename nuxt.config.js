@@ -37,7 +37,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-   
+   '@/static/custom-sw.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -90,6 +90,9 @@ export default {
   ** Handle external assets
   */
   workbox: {
+		importScripts: [
+			  'custom-sw.js'
+		  ],
     runtimeCaching: [
       {
         urlPattern: 'https://knowzone.ghostzones.ml/.*',
