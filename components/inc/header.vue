@@ -10,25 +10,20 @@
                     </div>
                 </div>
 
-              <!-----------Navigation----------------->
-                <div class="tv-main-menu tv-sticky-header bg-light">
-                    <div class="navbar-default container">
-                        <nav class="navbar navbar-expand-md navbar-light">
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-label="Toggle navigation">
-                                <span class="ti-menu"></span>
-                            </button>
-                            <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">							
-                                <ul class="navbar-nav tv-reset-navbar"> 								
-                                    <li class="nav-item" v-for="navs in navigation">
-                                        <a class="nav-link"  :href="navs.url">{{navs.label}}</a>
-                                    </li> 
-									 <li class="nav-item search-list"><a href="/search" class="tv-search-btn"><i class="ti-search"></i></a></li>	
-                                </ul>
-                            </div>
+             <!-----------Navigation----------------->
+			    <div>
+				  <b-navbar toggleable="lg" type="light" variant="info">
+					<b-navbar-brand href="#"></b-navbar-brand>
+					<b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-                        </nav>
-                    </div>
-                </div>
+					<b-collapse id="nav-collapse" is-nav>
+					  <b-navbar-nav class="navbar-nav tv-reset-navbar">
+						<b-nav-item class="nav-item" v-for="navs in navigation"  :href="navs.url"  v-bind:key="navs.url">{{navs.label}}</b-nav-item>
+						<b-nav-item class="nav-item" href="/search"><i class="ti-search"></i></b-nav-item>
+					  </b-navbar-nav>					  
+					</b-collapse>
+				  </b-navbar>
+				</div>
                 <!-----------End----------------->
                 
             </header>

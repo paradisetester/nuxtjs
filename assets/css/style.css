@@ -1459,7 +1459,9 @@ li.nav-item.search-list a {
     display: inline-block;
     padding: 13px;
 }
-
+nav.navbar.navbar-light.bg-info.navbar-expand-lg {
+    background-color: #f8f9fa!important;
+}
 .search_item{display:flex;padding:20px 0;margin:10px 0;border-bottom: 1px solid #ccc;}
 .search-left{width:100px;height:100px;position:relative;margin-right:15px;}
 .search-left .tv-widget-posts-slider-thumbnail{width:100%;height:100%;}
