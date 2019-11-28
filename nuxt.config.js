@@ -114,17 +114,17 @@ export default {
         strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
       },
       {
-        urlPattern: 'https://knowzone.netlify.com/.*',
+        urlPattern: 'https://knowzone.netlify.com/(.*)',
         method: 'GET',
         strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
       },
       {
-        urlPattern: 'https://knowzone.netlify.com/tag/.*',
+        urlPattern: 'https://knowzone.netlify.com/tag/(.*)',
         method: 'GET',
         strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
       },
       {
-        urlPattern: 'https://knowzone.netlify.com/posts/.*',
+        urlPattern: 'https://knowzone.netlify.com/posts/(.*)',
         method: 'GET',
         strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
       }
