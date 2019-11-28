@@ -79,6 +79,13 @@ export default {
     ],
 	fallback: true	
   },
+  
+  manifest: {
+	  name: 'Knowzone application with ghost and PWA',
+	  short_name: 'Knowzone PWA',
+	  lang: 'en',
+	  display: 'standalone',
+	},
   /*
   ** Handle external assets
   */
@@ -101,8 +108,23 @@ export default {
         method: 'GET',
         strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
       },
+	  {
+        urlPattern: ' http://storage.googleapis.com/.*',
+        method: 'GET',
+        strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+      },
       {
         urlPattern: '/.*',
+        method: 'GET',
+        strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+      },
+      {
+        urlPattern: '/tag/.*',
+        method: 'GET',
+        strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
+      },
+      {
+        urlPattern: '/posts/.*',
         method: 'GET',
         strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
       }
