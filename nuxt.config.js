@@ -121,12 +121,12 @@ export default {
         strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
       },
       {
-        urlPattern: 'https://knowzone.netlify.com/tag/{{$slug}}',
+        urlPattern: 'https://knowzone.netlify.com/tag/_slug',
         method: 'GET',
         strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
       },
       {
-        urlPattern: 'https://knowzone.netlify.com/posts/{{$slug}}',
+        urlPattern: 'https://knowzone.netlify.com/posts/_slug',
         method: 'GET',
         strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
       }
