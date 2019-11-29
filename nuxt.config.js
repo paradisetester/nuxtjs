@@ -56,7 +56,8 @@ export default {
   /*
   ** Build configuration
   */
-  build: {	
+  build: {
+  
     extend(config, ctx) {
     if (ctx.isServer) {
         config.externals = [
@@ -115,22 +116,8 @@ export default {
         urlPattern: ' http://storage.googleapis.com/.*',
         method: 'GET',
         strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
-      },
-      {
-        urlPattern: 'https://knowzone.netlify.com/(.*)',
-        method: 'GET',
-        strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
-      },
-      {
-        urlPattern: 'https://knowzone.netlify.com/tag/_slug',
-        method: 'GET',
-        strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
-      },
-      {
-        urlPattern: 'https://knowzone.netlify.com/posts/_slug',
-        method: 'GET',
-        strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
       }
+      
     ]
   },
    

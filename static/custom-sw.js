@@ -28,4 +28,14 @@ import {  API_KEY, HOST_URL } from '../config/constants'
 			  console.log(error)
 			})
 			
-	
+const staticCacheName = 'pages-cache-v1';
+
+self.addEventListener('install', event => {
+  console.log('Attempting to install service worker and cache static assets');
+  event.waitUntil(
+    caches.open(staticCacheName)
+    .then(cache => {
+      return cache.addAll(tags);
+    })
+  );
+});
