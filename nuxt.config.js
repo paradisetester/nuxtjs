@@ -84,7 +84,7 @@ export default {
   
   manifest: {
 	  name: 'Knowzone application with ghost and PWA',
-	  short_name: 'Knowzone PWA',
+	  short_name: 'Knowzone',
 	  lang: 'en',
 	  display: 'standalone',
 	},
@@ -93,7 +93,9 @@ export default {
   */
   workbox: {
   cachingExtensions: '@/static/custom-sw.js',
-		dev: true,    
+		dev: true,
+		production: true,
+      debug: true,
     runtimeCaching: [
       {
         urlPattern: 'https://knowzone.ghostzones.ml/.*',
