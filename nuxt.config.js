@@ -91,7 +91,8 @@ export default {
   ** Handle external assets
   */
   workbox: {
-		
+		dev: true,
+      debug: true,
     runtimeCaching: [
       {
         urlPattern: 'https://knowzone.ghostzones.ml/.*',
