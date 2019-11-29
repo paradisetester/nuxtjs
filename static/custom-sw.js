@@ -5,12 +5,12 @@ import axios from 'axios'
 import {  API_KEY, HOST_URL } from '../config/constants'
 
 
-
  axios.get(HOST_URL+'/tags/?key='+API_KEY+'&limit=30&fields=slug')
 			.then(response => {				
-			  tags = response.data.tags			  
+			  tags = response.data.tags	
+			  console.log(tags);
 			  for(var i=0; i<tags.length; i++) {				 
-				  workbox.routing.registerRoute(new RegExp('https://knowzone.netlify.com/tag/'+tags[i].slug), new workbox.strategies.NetworkFirst ({}), 'GET')				  
+				  workbox.routing.registerRoute(new RegExp('/tag/'+tags[i].slug), new workbox.strategies.NetworkFirst ({}), 'GET')				  
 				}
 			})
 			.catch(error => {
@@ -21,7 +21,7 @@ import {  API_KEY, HOST_URL } from '../config/constants'
 			.then(response => {				
 			 posts = response.data.posts
 			  for(var i=0; i<posts.length; i++) {				 
-				  workbox.routing.registerRoute(new RegExp('https://knowzone.netlify.com/tag/'+posts[i].slug), new workbox.strategies.NetworkFirst ({}), 'GET')				  
+				  workbox.routing.registerRoute(new RegExp('/posts/'+posts[i].slug), new workbox.strategies.NetworkFirst ({}), 'GET')				  
 				}
 			})
 			.catch(error => {

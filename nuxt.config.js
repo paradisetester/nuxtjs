@@ -38,7 +38,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [      
-   '@/static/custom-sw.js'
+  
   ],
   /*
   ** Nuxt.js dev-modules
@@ -91,9 +91,7 @@ export default {
   ** Handle external assets
   */
   workbox: {
-		importScripts: [
-			  'custom-sw.js'
-		  ],
+		
     runtimeCaching: [
       {
         urlPattern: 'https://knowzone.ghostzones.ml/.*',
@@ -123,12 +121,12 @@ export default {
         strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
       },
       {
-        urlPattern: 'https://knowzone.netlify.com/tag/(.*)',
+        urlPattern: 'https://knowzone.netlify.com/tag/{{$slug}}',
         method: 'GET',
         strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
       },
       {
-        urlPattern: 'https://knowzone.netlify.com/posts/(.*)',
+        urlPattern: 'https://knowzone.netlify.com/posts/{{$slug}}',
         method: 'GET',
         strategyOptions: { cacheableResponse: { statuses: [0, 200] } }
       }

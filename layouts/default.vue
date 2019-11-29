@@ -11,7 +11,6 @@
 import { ghostAPI, settingIndexFields } from '@/utils/ghost'
 import Footer from '~/components/inc/footer.vue'
 import Header from '~/components/inc/header.vue'
-import axios from 'axios'
 
 export default {
  
