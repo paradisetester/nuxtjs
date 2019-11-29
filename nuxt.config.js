@@ -33,10 +33,11 @@ export default {
 	  '@/assets/css/style.css',
 	  '@/assets/css/responsive.css',
   ],
+
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
+  plugins: [      
    '@/static/custom-sw.js'
   ],
   /*
