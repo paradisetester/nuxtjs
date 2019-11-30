@@ -7,9 +7,9 @@
                         <div class="tv-breadcrumb-box">
                             <ul class="breadcrumb">
                                 <li class="breadcrumb-item">
-									<a href="/">Home</a> /
-									<a href="/posts">Posts</a> / 
-									<a :href="'/posts/'+slug">{{slug}}</a>
+									<nuxt-link to="/">Home</nuxt-link> /
+									<nuxt-link to="/posts">Posts</nuxt-link> / 
+									<nuxt-link :to="'/posts/'+slug">{{slug}}</nuxt-link>
 								</li>
 							
                                 
@@ -49,7 +49,7 @@
                                     
                                     <div class="tv-tag-list tv-dark-color">
                                        
-                                       <a :href="'/tag/'+tag.slug" class="tv-tag-link" v-for="tag in post.tags">{{tag.name}}</a> 
+                                       <nuxt-link :to="'/tag/'+tag.slug" class="tv-tag-link" v-for="tag in post.tags">{{tag.name}}</nuxt-link> 
                                     </div>
 
                                 </article>
@@ -72,10 +72,10 @@
                                     <div class="tv-widget-category-box">
                                         <ul class="tv-widget-category-list">
                                            <li  v-for="tag in tags" >									
-											<a :href="'/tag/'+tag.slug">{{tag.name}} <span class="count">{{tag.count.posts}}</span></a></li>
+											<nuxt-link :to="'/tag/'+tag.slug">{{tag.name}} <span class="count">{{tag.count.posts}}</span></nuxt-link></li>
                                         </ul>
 										<div class="view-all">
-								<a href="tag" class="view-all-btn" >View All Categories</a>
+								<nuxt-link to="tag" class="view-all-btn" >View All Categories</nuxt-link>
 								</div>
                                     </div>
                                 </div>

@@ -4,14 +4,15 @@ const HOST_URL = 'https://knowzone.ghostzones.ml/ghost/api/v2/content/';
 var tags='';
 var posts='';
 
-fetch(HOST_URL+'/tags/?key='+API_KEY+'&limit=50&fields=slug')
+fetch(HOST_URL+'/tags/?key='+API_KEY+'&limit=10&fields=slug')
   .then(response => {
     return response.json()
   })
   .then(data => {
     // Work with JSON data here
 	tags = response.data.tags			  
-			  for(var i=0; i<tags.length; i++) {				 
+			  for(var i=0; i<tags.length; i++) {		
+			  console.log('/tag/'+tags[i].slug);
 				  workbox.routing.registerRoute(new RegExp('/tag/'+tags[i].slug), new workbox.strategies.NetworkFirst ({}), 'GET')				  
 				}
   })

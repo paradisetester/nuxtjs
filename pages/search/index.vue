@@ -29,7 +29,7 @@
 	</div>
 	<div class="search-right">
 		<div class="post-title">
-			<h5><a :href="'/posts/'+post.slug">{{post.title}}</a></h5>
+			<h5><nuxt-link :to="'/posts/'+post.slug">{{post.title}}</nuxt-link></h5>
 		</div> 
 		<div class="post-meta">
 			<span class="posts-date"><i class="ti-calendar"></i> {{ $moment(post.published_at).format('MM/DD/YYYY') }}</span>

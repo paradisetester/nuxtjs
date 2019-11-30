@@ -6,7 +6,7 @@
                         <div class="tv-page-title"><h1>Post</h1></div>
                         <div class="tv-breadcrumb-box">
                             <ul class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html"></a></li>
+                                <li class="breadcrumb-item"><nuxt-link to="/"></nuxt-link></li>
                                 
                             </ul>
                         </div>
@@ -27,14 +27,14 @@
                                         <div class="post-extra-details">
                                             <div class="post-categories">
 												
-												<a :href="'/tag/'+tag.slug" v-for="tag in post.tags">{{tag.name}}</a> 
+												<nuxt-link :to="'/tag/'+tag.slug" v-for="tag in post.tags">{{tag.name}}</nuxt-link> 
 											</div>
                                             <div class="post-title">
                                                 <h2>{{post.title}}</h2>
                                             </div>
                                             <div class="single-post-meta">
                                                 <span class="post-author" v-for="author in post.authors" >
-													<a :href="'/author/'+author.slug">{{author.name}}</a>
+													<nuxt-link :to="'/author/'+author.slug">{{author.name}}</nuxt-link>
 											    </span>
                                                 <span class="posts-date">
 													<i class="ti-calendar"></i> {{ $moment(post.published_at).format('MM/DD/YYYY') }}
@@ -47,7 +47,7 @@
                                     
                                     <div class="tv-tag-list tv-dark-color">
                                        
-                                       <a :href="'/tag/'+tag.slug" class="tv-tag-link" v-for="tag in post.tags">{{tag.name}}</a> 
+                                       <nuxt-link :to="'/tag/'+tag.slug" class="tv-tag-link" v-for="tag in post.tags">{{tag.name}}</nuxt-link> 
                                     </div>
 
                                 </article>
@@ -70,10 +70,10 @@
                                     <div class="tv-widget-category-box">
                                         <ul class="tv-widget-category-list">
                                            <li  v-for="tag in tags" >									
-											<a :href="'/tag/'+tag.slug">{{tag.name}} <span class="count">{{tag.count.posts}}</span></a></li>
+											<nuxt-link :to="'/tag/'+tag.slug">{{tag.name}} <span class="count">{{tag.count.posts}}</span></nuxt-link></li>
                                         </ul>
 										<div class="view-all">
-											<a href="/tag" class="view-all-btn" >View All Categories</a>
+											<nuxt-link to="/tag" class="view-all-btn" >View All Categories</nuxt-link>
 										</div>
                                     </div>
                                 </div>

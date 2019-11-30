@@ -16,11 +16,11 @@
                             <div class="tv-featured-content-wrapper">
                                 <div class="post-categories">
 								
-                                    <a :href="'/tag/'+tag.slug" v-for="tag in fpost.tags">{{tag.name}}</a>
+                                    <nuxt-link :to="'/tag/'+tag.slug" v-for="tag in fpost.tags">{{tag.name}}</nuxt-link>
 									
                                 </div>
                                 <div class="tv-featured-content-title">
-                                    <h2 class="tv-white-text"><a :href="'/posts/'+fpost.slug">{{fpost.title}}</a></h2>
+                                    <h2 class="tv-white-text"><nuxt-link :to="'/posts/'+fpost.slug">{{fpost.title}}</nuxt-link></h2>
                                 </div>
                                 <div class="tv-featured-posted-date">
                                     <span class="posted-date"> {{ $moment(fpost.published_at).format('MM/DD/YYYY') }}</span>
@@ -50,24 +50,24 @@
                                     <div class="post-thumnail-box">
                                         <div class="post-image" :style="{ backgroundImage: `url(${fpost.feature_image})` }" ></div>
                                     </div>
-                                    <a class="tv-post-overlay" :href="'/posts/'+fpost.slug">
+                                    <nuxt-link  class="tv-post-overlay" :to="'/posts/'+fpost.slug">
                                         <i class="ti-exchange-vertical"></i>
-                                    </a>
+                                    </nuxt-link>
                                 </div>
                                 <div class="post-extra-details">
                                     <div class="post-categories">
-										<a :href="'/tag/'+tag.slug" v-for="tag in fpost.tags">{{tag.name}}, </a> 
+										<nuxt-link :to="'/tag/'+tag.slug" v-for="tag in fpost.tags">{{tag.name}}, </nuxt-link> 
 										
 									</div>
                                     <div class="post-title">
-                                        <h4><a :href="'/posts/'+fpost.slug">{{fpost.title}}</a></h4>
+                                        <h4><nuxt-link :to="'/posts/'+fpost.slug">{{fpost.title}}</nuxt-link></h4>
                                     </div>
                                     <div class="post-meta">
                                         <span class="posts-date">
                                             <i class="ti-calendar"></i> {{ $moment(fpost.published_at).format('MM/DD/YYYY') }}</span>
                                         
                                          <span class="post-author" v-for="author in fpost.authors" >
-											<a :href="'/author/'+author.slug">{{author.name}}</a>
+											<nuxt-link :to="'/author/'+author.slug">{{author.name}}</nuxt-link>
 									   </span>
                                     </div>
                                 </div>
@@ -100,18 +100,18 @@
                                                 <div class="post-thumnail-box">
                                                     <div class="post-image"  :style="{ backgroundImage: `url(${post.feature_image})` }"></div>
                                                 </div>
-                                                <a class="tv-post-overlay" :href="'/posts/'+post.slug">
+                                                <nuxt-link class="tv-post-overlay" :to="'/posts/'+post.slug">
                                                     <i class="ti-exchange-vertical"></i>
-                                                </a>
+                                                </nuxt-link>
                                             </div>
                                         </div>
                                         <div class="col-md-6 tv-post-section-right">
                                             <div class="post-extra-details">
                                                 <div class="post-categories">
-													<a :href="'/tag/'+tag.slug" v-for="tag in post.tags">{{tag.name}}, </a>
+													<nuxt-link :to="'/tag/'+tag.slug" v-for="tag in post.tags">{{tag.name}}, </nuxt-link>
 												</div>
                                                 <div class="post-title">
-                                                    <h2><a :href="'/posts/'+post.slug">{{post.title}}</a></h2>
+                                                    <h2><nuxt-link :to="'/posts/'+post.slug">{{post.title}}</nuxt-link></h2>
                                                 </div>
                                                 <div class="post-content" >
                                                     <p v-if="post.excerpt">{{post.excerpt}}</p>
@@ -122,7 +122,7 @@
 													 <i class="ti-calendar"></i> {{ $moment(post.published_at).format('MM/DD/YYYY hh:mm') }}
 												   </span>                                       
 												   <span class="post-author" v-for="author in post.authors" >
-														<a :href="'/author/'+author.slug">{{author.name}}</a>
+														<nuxt-link :to="'/author/'+author.slug">{{author.name}}</nuxt-link>
 												   </span>
                                             </div>
                                         </div>
@@ -131,7 +131,7 @@
                                 </div>
                             </article>  
 							<div class="view-all">
-							<a href="posts" class="view-all-btn" >View All Posts</a>
+							<nuxt-link to="posts" class="view-all-btn" >View All Posts</nuxt-link>
 							</div>
                         </div>
                         <!-----------End----------------->
@@ -182,12 +182,12 @@
 							<div class="tv-widget-category-box">
 								<ul class="tv-widget-category-list">
 								<li  v-for="tag in tags" >									
-									<a :href="'/tag/'+tag.slug">{{tag.name}} 
-									<span class="count">{{tag.count}}</span></a>
+									<nuxt-link :to="'/tag/'+tag.slug">{{tag.name}} 
+									<span class="count">{{tag.count}}</span></nuxt-link>
 								</li>                                           
 								</ul>
 								<div class="view-all">
-								<a href="tag" class="view-all-btn" >View All Categories</a>
+								<nuxt-link to="/tag" class="view-all-btn" >View All Categories</nuxt-link>
 								</div>
 							</div>
                                 </div>
@@ -238,7 +238,14 @@ export default {
                 slidesToShow: 2,
 				dots: true,
 				arrows: false,
-				autoplay: true
+				autoplay: true,
+				responsive: [{
+				breakpoint: 600,
+				  settings: {
+					slidesToShow: 1,
+					dots: true
+				  }
+				}]
             },
     }),
     components: {

@@ -92,10 +92,10 @@ export default {
   ** Handle external assets
   */
   workbox: {
-  cachingExtensions: '@/static/custom-sw.js',
+		cachingExtensions: '@/static/custom-sw.js',
 		dev: true,
 		production: true,
-      debug: true,
+		debug: true,
     runtimeCaching: [
       {
         urlPattern: 'https://knowzone.ghostzones.ml/.*',

@@ -8,8 +8,8 @@
 					<div class="tv-breadcrumb-box">
 						<ul class="breadcrumb">
 							<li class="breadcrumb-item">
-								<a href="/">Home</a> /
-								<a href="/tag">Tag</a>
+								<nuxt-link to="/">Home</nuxt-link> /
+								<nuxt-link to="/tag">Tag</nuxt-link>
 							</li>
 							
 						</ul>
@@ -27,16 +27,16 @@
 									<div class="post-image" :style="{ backgroundImage: `url(${fpost.feature_image})` }" v-if="fpost.feature_image"></div>
 									<div class="post-image" :style="{ backgroundImage: `url(${postimage})` }" v-else></div>
 								</div>
-								<a class="tv-post-overlay" :href="'/tag/'+fpost.slug">
+								<nuxt-link class="tv-post-overlay" :to="'/tag/'+fpost.slug">
 									<i class="ti-exchange-vertical"></i>
-								</a>
+								</nuxt-link>
 							</div>
 							<div class="post-extra-details">
 								
 								<div class="post-title">
-									<h4><a :href="'/tag/'+fpost.slug">{{fpost.name}}</a></h4>
+									<h4><nuxt-link :to="'/tag/'+fpost.slug">{{fpost.name}}</nuxt-link></h4>
 									 <span class="post-author" >
-											<a :href="'/tag/'+fpost.slug">{{fpost.count.posts}}</a>
+											<nuxt-link :to="'/tag/'+fpost.slug">{{fpost.count.posts}}</nuxt-link>
 									   </span>
 									
 								</div>

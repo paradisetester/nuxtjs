@@ -8,8 +8,8 @@
 					<div class="tv-breadcrumb-box">
 						<ul class="breadcrumb">
 							<li class="breadcrumb-item">
-								<a href="/">Home</a> /
-								<a href="/posts">Posts</a> / 
+								<nuxt-link to="/">Home</nuxt-link> /
+								<nuxt-link to="/posts">Posts</nuxt-link> / 
 								
 							</li>
 							
@@ -28,24 +28,24 @@
 									<div class="post-image" :style="{ backgroundImage: `url(${fpost.feature_image})` }" v-if="fpost.feature_image"></div>
 									<div class="post-image" :style="{ backgroundImage: `url(${postimage})` }" v-else></div>
 								</div>
-								<a class="tv-post-overlay" :href="'/posts/'+fpost.slug">
+								<nuxt-link class="tv-post-overlay" :to="'/posts/'+fpost.slug">
 									<i class="ti-exchange-vertical"></i>
-								</a>
+								</nuxt-link>
 							</div>
 							<div class="post-extra-details">
 								<div class="post-categories">
-									<a :href="'/tag/'+tag.slug" v-for="tag in fpost.tags">{{tag.name}}, </a> 
+									<nuxt-link :to="'/tag/'+tag.slug" v-for="tag in fpost.tags">{{tag.name}}, </nuxt-link> 
 									
 								</div>
 								<div class="post-title">
-									<h4><a :href="'/posts/'+fpost.slug">{{fpost.title}}</a></h4>
+									<h4><nuxt-link :to="'/posts/'+fpost.slug">{{fpost.title}}</nuxt-link></h4>
 								</div>
 								<div class="post-meta">
 									<span class="posts-date">
 									<i class="ti-calendar"></i> {{ $moment(fpost.published_at).format('MM/DD/YYYY') }}</span>
 									
 									<span class="post-author" v-for="author in fpost.authors" >
-										<a :href="'/author/'+author.slug">{{author.name}}</a>
+										<nuxt-link :to="'/author/'+author.slug">{{author.name}}</nuxt-link>
 									</span>
 								</div>
 							</div>

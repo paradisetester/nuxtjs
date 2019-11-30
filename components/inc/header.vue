@@ -5,7 +5,7 @@
                 <div class="tv-middle-header">
                     <div class="container">
                         <div class="tv-logo text-center">
-                            <a href="/"><img src="~assets/images/logo.png" alt="logo" width="208px"></a>
+                            <nuxt-link to="/"><img src="~assets/images/logo.png" alt="logo" width="208px"></nuxt-link>
                         </div>
                     </div>
                 </div>
@@ -18,8 +18,8 @@
 
 					<b-collapse id="nav-collapse" is-nav>
 					  <b-navbar-nav class="navbar-nav tv-reset-navbar">
-						<b-nav-item class="nav-item" v-for="navs in navigation"  :href="navs.url"  v-bind:key="navs.url">{{navs.label}}</b-nav-item>
-						<b-nav-item class="nav-item" href="/search"><i class="ti-search"></i></b-nav-item>
+						<b-nav-item class="nav-item" v-for="navs in navigation" :to="navs.url"  v-bind:key="navs.url">{{navs.label}}</b-nav-item>
+						<b-nav-item class="nav-item" nuxt-link to="/search"><i class="ti-search"></i></b-nav-item>
 					  </b-navbar-nav>					  
 					</b-collapse>
 				  </b-navbar>
