@@ -10,7 +10,7 @@
     >
 						<div class="swiper-slide swiper-slide-duplicate" style="width: 449.667px;" v-for="fpost in featur_post">
                             <div class="tv-featured-post-image">
-                                <img :src="fpost.feature_image"  alt="post-image">
+                                <img :src="fpost.feature_image"  :alt="fpost.title">
                                 <div class="tv-overlay-light-dark"></div>
                             </div>
                             <div class="tv-featured-content-wrapper">
@@ -149,14 +149,14 @@
                                         </div>
                                     </div>
                                     <div class="tv-about-me-profile text-center">
-                                        <img :src="author.profile_image" alt="" class="" v-if="author.profile_image">
-                                        <img src="~assets/images/images.jpg" class="img-fluid" width="100%" v-else>
+                                        <img :src="author.profile_image" :alt="author.name" class="" v-if="author.profile_image">
+                                        <img src="~assets/images/images.jpg" alt="author images" class="img-fluid" width="100%" v-else>
                                     </div>
                                     <div class="tv-about-me-content text-center">
 										
                                         <div class="tv-author-name">
                                             <h3>{{author.name}}</h3>
-                                            <span class="tv-author-profession">Ghost Blogger</span>
+                                           
                                         </div>
                                         <div class="tv-author-bio">
                                             <p>{{author.bio}}</p>

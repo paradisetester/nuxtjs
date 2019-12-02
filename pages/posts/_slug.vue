@@ -26,8 +26,8 @@
                             <div class="tv-single-blog tv-blog-style-one">
                                 <article class="tv-single-blog-item">
                                     <div class="tv-post-image">
-                                        <img v-if="post.feature_image" :src="post.feature_image" class="img-fluid" alt="single-blog-image">
-                                        <img v-else="bg" :src="post.feature_image" class="img-fluid" alt="single-blog-image">
+                                        <img v-if="post.feature_image" :src="post.feature_image" class="img-fluid" :alt="post.title">
+                                        <img v-else="bg" :src="post.feature_image" class="img-fluid" :alt="post.title">
                                     </div>
                                     <div class="tv-post-content-holder">
                                         <div class="post-extra-details">

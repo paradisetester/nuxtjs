@@ -33,7 +33,13 @@ export default {
 	  '@/assets/css/style.css',
 	  '@/assets/css/responsive.css',
   ],
-
+	render: {
+    bundleRenderer: {
+      shouldPreload: (file, type) => {
+        return ['script', 'style'].includes(type)
+      }
+    }
+  },
   /*
   ** Plugins to load before mounting the App
   */

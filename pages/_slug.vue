@@ -21,7 +21,7 @@
                             <div class="tv-single-blog tv-blog-style-one">
                                 <article class="tv-single-blog-item">
                                     <div class="tv-post-image">
-                                        <img :src="post.feature_image" class="img-fluid" alt="single-blog-image">
+                                        <img :src="post.feature_image" class="img-fluid" :alt="post.title">
                                     </div>
                                     <div class="tv-post-content-holder">
                                         <div class="post-extra-details">
