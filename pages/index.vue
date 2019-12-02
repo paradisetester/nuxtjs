@@ -192,27 +192,7 @@
 							</div>
                                 </div>
                                
-                                <div class="tv-widget tv-widget-subscribe">
-                                    <div class="tv-heading-section">
-                                        <div class="tv-heading-title">
-                                            <h3>Subscribe Now</h3>
-                                        </div>
-                                        <div class="tv-seperator-content">
-                                            <div class="tv-seperator-line"></div>
-                                        </div>
-                                    </div>
-                                    <div class="tv-widget-subscribe-box">
-                                        <form class="tv-widget-subscribe-form">
-                                            <div class="tv-widget-subscribe-form-fields">
-                                                <p>
-                                                    <input name="EMAIL" placeholder="Your email address" required="" type="email">
-                                                    <input value="Sign up" type="submit">
-                                                </p>
-                                            </div>
-                                        </form>
-                                        <p class="tv-widget-subscribe-description">* Nullam luctus mauris luctus lacus facilisis accumsan lectus sagittis maximus nunc sit amet!</p>
-                                    </div>
-                                </div>
+                                
                             </div>
                         </div>
                         <!-----------End----------------->
