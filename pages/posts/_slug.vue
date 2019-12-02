@@ -26,7 +26,8 @@
                             <div class="tv-single-blog tv-blog-style-one">
                                 <article class="tv-single-blog-item">
                                     <div class="tv-post-image">
-                                        <img :src="post.feature_image" class="img-fluid" alt="single-blog-image">
+                                        <img v-if="post.feature_image" :src="post.feature_image" class="img-fluid" alt="single-blog-image">
+                                        <img v-else="bg" :src="post.feature_image" class="img-fluid" alt="single-blog-image">
                                     </div>
                                     <div class="tv-post-content-holder">
                                         <div class="post-extra-details">
@@ -92,14 +93,16 @@
 import axios from 'axios'
 import { ghostAPI, tagsIndexFields } from '@/utils/ghost'
 import moment from 'moment'
-
+import backgroundUrl from '~/assets/images/footer-bg.jpg'
+ 
 import {  API_KEY, HOST_URL } from '../../config/constants'
 
 export default {
 data: () => ({   
     slug: '',
     post: '',
-	tags: ''
+	tags: '',
+	bg: backgroundUrl,
     
   }),
   methods: { 

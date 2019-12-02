@@ -27,7 +27,8 @@
                             <article class="author-blog">
                                 <div class="post-thumnail">
                                     <div class="post-thumnail-box">
-                                        <div class="post-image" :style="{ backgroundImage: `url(${fpost.feature_image})` }" ></div>
+                                        <div class="post-image" :style="{ backgroundImage: `url(${fpost.feature_image})` }" v-if="fpost.feature_image"></div>
+                                        <div class="post-image" :style="{ backgroundImage: `url(${bg})` }" v-else></div>
                                     </div>
                                     <nuxt-link class="tv-post-overlay" :to="'/posts/'+fpost.slug">
                                         <i class="ti-exchange-vertical"></i>
@@ -63,14 +64,15 @@
 
 import { ghostAPI, postIndexFields } from '@/utils/ghost'
 import moment from 'moment'
-
+import backgroundUrl from '~/assets/images/footer-bg.jpg'
  
 
 
 export default {
 data: () => ({   
     slug: '',
-    posts: ''
+    posts: '',
+	bg: backgroundUrl,
   }),
    async asyncData ({route, params}) {  
 		
