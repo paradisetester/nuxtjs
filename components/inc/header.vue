@@ -5,7 +5,7 @@
                 <div class="tv-middle-header">
                     <div class="container">
                         <div class="tv-logo text-center">
-                            <nuxt-link to="/"><img src="~assets/images/logo.png" alt="logo" width="208px"></nuxt-link>
+                            <nuxt-link to="/" aria-label="Knowzone home page"><img src="~assets/images/logo.png" alt="logo" width="208px"></nuxt-link>
                         </div>
                     </div>
                 </div>
@@ -13,13 +13,13 @@
              <!-----------Navigation----------------->
 			    <div>
 				  <b-navbar toggleable="lg" type="light" variant="info">
-					<b-navbar-brand href="#"></b-navbar-brand>
+					<b-navbar-brand href="#" aria-label="Knowzone"></b-navbar-brand>
 					<b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
 					<b-collapse id="nav-collapse" is-nav>
 					  <b-navbar-nav class="navbar-nav tv-reset-navbar">
-						<b-nav-item class="nav-item" v-for="navs in navigation" :to="navs.url"  v-bind:key="navs.url">{{navs.label}}</b-nav-item>
-						<b-nav-item class="nav-item" nuxt-link to="/search"><i class="ti-search"></i></b-nav-item>
+						<b-nav-item class="nav-item" v-for="navs in navigation" :to="navs.url"  v-bind:key="navs.url" :aria-label="navs.url" >{{navs.label}}</b-nav-item>
+						<b-nav-item class="nav-item" nuxt-link to="/search" aria-label="search"><i class="ti-search"></i> Search</b-nav-item>
 					  </b-navbar-nav>					  
 					</b-collapse>
 				  </b-navbar>

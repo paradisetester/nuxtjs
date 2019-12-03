@@ -10,17 +10,17 @@
     >
 						<div class="swiper-slide swiper-slide-duplicate" style="width: 449.667px;" v-for="fpost in featur_post">
                             <div class="tv-featured-post-image">
-                                <img :src="fpost.feature_image"  :alt="fpost.title">
+                                <img :src="fpost.feature_image.replace(/(^\w+:|^)\/\//, '//')"  :alt="fpost.title">
                                 <div class="tv-overlay-light-dark"></div>
                             </div>
                             <div class="tv-featured-content-wrapper">
                                 <div class="post-categories">
 								
-                                    <nuxt-link :to="'/tag/'+tag.slug" v-for="tag in fpost.tags">{{tag.name}}</nuxt-link>
+                                    <nuxt-link :to="'/tag/'+tag.slug" v-for="tag in fpost.tags" :aria-label="tag.name">{{tag.name}}</nuxt-link>
 									
                                 </div>
                                 <div class="tv-featured-content-title">
-                                    <h2 class="tv-white-text"><nuxt-link :to="'/posts/'+fpost.slug">{{fpost.title}}</nuxt-link></h2>
+                                    <h2 class="tv-white-text"><nuxt-link :to="'/posts/'+fpost.slug" :aria-label="fpost.title">{{fpost.title}}</nuxt-link></h2>
                                 </div>
                                 <div class="tv-featured-posted-date">
                                     <span class="posted-date"> {{ $moment(fpost.published_at).format('MM/DD/YYYY') }}</span>
@@ -50,17 +50,17 @@
                                     <div class="post-thumnail-box">
                                         <div class="post-image" :style="{ backgroundImage: `url(${fpost.feature_image})` }" ></div>
                                     </div>
-                                    <nuxt-link  class="tv-post-overlay" :to="'/posts/'+fpost.slug">
+                                    <nuxt-link  class="tv-post-overlay" :to="'/posts/'+fpost.slug" :aria-label="fpost.title">
                                         <i class="ti-exchange-vertical"></i>
                                     </nuxt-link>
                                 </div>
                                 <div class="post-extra-details">
                                     <div class="post-categories">
-										<nuxt-link :to="'/tag/'+tag.slug" v-for="tag in fpost.tags">{{tag.name}}, </nuxt-link> 
+										<nuxt-link :aria-label="tag.name" :to="'/tag/'+tag.slug" v-for="tag in fpost.tags">{{tag.name}}, </nuxt-link> 
 										
 									</div>
                                     <div class="post-title">
-                                        <h4><nuxt-link :to="'/posts/'+fpost.slug">{{fpost.title}}</nuxt-link></h4>
+                                        <h4><nuxt-link :to="'/posts/'+fpost.slug" :aria-label="fpost.title">{{fpost.title}}</nuxt-link></h4>
                                     </div>
                                     <div class="post-meta">
                                         <span class="posts-date">
@@ -100,7 +100,7 @@
                                                 <div class="post-thumnail-box">
                                                     <div class="post-image"  :style="{ backgroundImage: `url(${post.feature_image})` }"></div>
                                                 </div>
-                                                <nuxt-link class="tv-post-overlay" :to="'/posts/'+post.slug">
+                                                <nuxt-link class="tv-post-overlay" :to="'/posts/'+post.slug"  :aria-label="post.title">
                                                     <i class="ti-exchange-vertical"></i>
                                                 </nuxt-link>
                                             </div>
@@ -108,10 +108,10 @@
                                         <div class="col-md-6 tv-post-section-right">
                                             <div class="post-extra-details">
                                                 <div class="post-categories">
-													<nuxt-link :to="'/tag/'+tag.slug" v-for="tag in post.tags">{{tag.name}}, </nuxt-link>
+													<nuxt-link :to="'/tag/'+tag.slug" v-for="tag in post.tags" :aria-label="tag.name">{{tag.name}}, </nuxt-link>
 												</div>
                                                 <div class="post-title">
-                                                    <h2><nuxt-link :to="'/posts/'+post.slug">{{post.title}}</nuxt-link></h2>
+                                                    <h2><nuxt-link :to="'/posts/'+post.slug" :aria-label="post.title">{{post.title}}</nuxt-link></h2>
                                                 </div>
                                                 <div class="post-content" >
                                                     <p v-if="post.excerpt">{{post.excerpt}}</p>
@@ -122,7 +122,7 @@
 													 <i class="ti-calendar"></i> {{ $moment(post.published_at).format('MM/DD/YYYY hh:mm') }}
 												   </span>                                       
 												   <span class="post-author" v-for="author in post.authors" >
-														<nuxt-link :to="'/author/'+author.slug">{{author.name}}</nuxt-link>
+														<nuxt-link :to="'/author/'+author.slug"  :aria-label="author.name">{{author.name}}</nuxt-link>
 												   </span>
                                             </div>
                                         </div>
@@ -191,7 +191,27 @@
 								</div>
 							</div>
                                 </div>
-                               
+                               <div class="tv-widget tv-widget-subscribe">
+                                    <div class="tv-heading-section">
+                                        <div class="tv-heading-title">
+                                            <h3>Subscribe Now</h3>
+                                        </div>
+                                        <div class="tv-seperator-content">
+                                            <div class="tv-seperator-line"></div>
+                                        </div>
+                                    </div>
+                                    <div class="tv-widget-subscribe-box">
+                                        <form class="tv-widget-subscribe-form">
+                                            <div class="tv-widget-subscribe-form-fields">
+                                                <p> <label for="email">Email</label>
+                                                    <input name="EMAIL" id="email" placeholder="Your email address" required="" type="email">
+                                                    <input value="Sign up" type="submit">
+                                                </p>
+                                            </div>
+                                        </form>
+                                        <p class="tv-widget-subscribe-description">* Nullam luctus mauris luctus lacus facilisis accumsan lectus sagittis maximus nunc sit amet!</p>
+                                    </div>
+                                </div>
                                 
                             </div>
                         </div>
