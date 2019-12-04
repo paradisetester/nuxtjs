@@ -5,7 +5,7 @@
                 <div class="tv-middle-header">
                     <div class="container">
                         <div class="tv-logo text-center">
-                            <nuxt-link to="/" aria-label="Knowzone home page"><img src="~assets/images/logo.png" alt="logo" width="208px"></nuxt-link>
+                            <nuxt-link to="/" aria-label="Knowzone home page"><img src="~assets/images/logo.png" alt="logo" width="208px" sizes="50vw"></nuxt-link>
                         </div>
                     </div>
                 </div>
@@ -69,4 +69,5 @@ export default {
 	
   }
 }
+ 
 </script>
