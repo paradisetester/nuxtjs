@@ -36,7 +36,7 @@ export default {
 	render: {
     bundleRenderer: {
       shouldPreload: (file, type) => {
-        return ['script', 'style', 'font'].includes(type)
+        return ['script', 'style', 'font', 'img'].includes(type)
       }
     }
   },
