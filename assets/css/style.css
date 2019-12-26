@@ -826,7 +826,7 @@ article.tv-post-item {
     padding: 0;
 }  
 .tv-breadcrumb-box .breadcrumb .breadcrumb-item > a {
-    color: #2d3438;
+    color: #fff;
     font-size: 13px;
     font-weight: 600;
 }
@@ -1316,6 +1316,7 @@ img {
 /*background*/
 .tv-bg-theme-col {
     background: #625809;
+	 color: #ffffff;
 }
 /*padding*/
 .tv-padd-tb-50 {
