@@ -611,6 +611,8 @@ article.tv-post-item {
 }
 .tv-about-me-profile img {
     border-radius: 50%;
+	background-color:#000;
+
 }
 .tv-author-name {
     padding-top: 20px;
@@ -1239,7 +1241,7 @@ img {
 .tv-footer-top-widget {
     padding: 100px 0;
     border-bottom: 1px solid rgba(221, 221, 221, 0.12);
-    background-color: #0000008c;
+    background-color: #000;
 }
 .tv-footer-widget {
     padding-bottom: 50px;
