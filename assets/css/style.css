@@ -1220,11 +1220,21 @@ img {
     opacity: 1;
     visibility: visible;
 }
-
+.tv-about-me-profile.text-center {
+    color: #000;
+}
 /*footer*/
+.tv-footer .post-extra-details .post-categories a{
+	color:#fff;
+}
+
+.tv-footer .posts-date i, .comment-count i {
+    color: #fff;   
+}
 .tv-footer {
     background-size: cover;
     background-position: 50% 50%;
+	background: #000;
 }
 .tv-footer-top-widget {
     padding: 100px 0;
