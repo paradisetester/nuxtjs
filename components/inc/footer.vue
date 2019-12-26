@@ -16,7 +16,7 @@
 								</div>
 							</div>
 							<div class="tv-tag-list">
-								<nuxt-link :to="'/tag/'+tag.slug" class="tv-tag-link"  v-for="tag in tags">{{tag.name}}</nuxt-link>
+								<nuxt-link :to="'/tag/'+tag.slug" class="tv-tag-link"  v-for="tag in tags"  v-bind:key="tag.slug">{{tag.name}}</nuxt-link>
 								
 							</div>
 						</div>
@@ -51,7 +51,7 @@
 										</div>
 										<div class="post-extra-details">
 											<div class="post-categories">
-												<nuxt-link :to="'/tag/'+tag.slug"  v-for="tag in post.tags" v-if="tag.name">{{tag.name}}, </nuxt-link> 
+												<nuxt-link :to="'/tag/'+tag.slug"  v-for="tag in post.tags" v-if="tag.name"  v-bind:key="tag.slug">{{tag.name}}, </nuxt-link> 
 											</div>
 											<div class="post-title">
 												<h5><nuxt-link :to="'/posts/'+post.slug">{{post.title}}</nuxt-link></h5>
@@ -102,7 +102,7 @@
 			<div class="container">
 				<div class="flex-box-view-one">
 					<div class="tv-footer-logo">
-						<a href=""><img src="~/assets/images/logo.png" alt="logo" width="208px"  sizes="50vw" ></a>
+						<a href=""><img src="~/assets/images/logo.svg" alt="logo" width="208px"  sizes="50vw" ></a>
 					</div>
 					<div class="copyright">
 						<!--Do not remove Backlink from footer of the template. To remove it you can purchase the Backlink !-->

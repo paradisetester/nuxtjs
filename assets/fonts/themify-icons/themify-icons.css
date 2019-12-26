@@ -12,6 +12,7 @@
 
 [class^="ti-"], [class*=" ti-"] {
 	font-family: 'themify';	
+	font-display:swap;
 	speak: none;
 	font-style: normal;
 	font-weight: normal;

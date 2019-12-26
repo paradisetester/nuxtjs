@@ -1,36 +1,39 @@
 <template>
   <section>
-
+		  
 				   <!-----------Slider Section----------------->
-          <div class="carousel">
-   <component
-      :is="slickComp"
-      ref="slick" 
-      :options="slickOptions"	   
-    >
-						<div class="swiper-slide swiper-slide-duplicate" style="width: 449.667px;" v-for="fpost in featur_post">
-                            <div class="tv-featured-post-image">
-                                <img :src="fpost.feature_image.replace(/(^\w+:|^)\/\//, '//')"  :alt="fpost.title">
-                                <div class="tv-overlay-light-dark"></div>
-                            </div>
-                            <div class="tv-featured-content-wrapper">
-                                <div class="post-categories">
-								
-                                    <nuxt-link :to="'/tag/'+tag.slug" v-for="tag in fpost.tags" :aria-label="tag.name">{{tag.name}}</nuxt-link>
+		  
+          <div class="carousel" v-if="featur_post">
+			   
+			<component :is="slickComp" ref="slick" :options="slickOptions">
+							<div class="swiper-slide swiper-slide-duplicate" style="width: 449.667px;" v-for="fpost in featur_post">
+								<div class="tv-featured-post-image">
+									<img :src="fpost.feature_image.replace(/(^\w+:|^)\/\//, 'https://')"  :alt="fpost.title">
+									<div class="tv-overlay-light-dark"></div>
+								</div>
+								<div class="tv-featured-content-wrapper">
+									<div class="post-categories">
 									
-                                </div>
-                                <div class="tv-featured-content-title">
-                                    <h2 class="tv-white-text"><nuxt-link :to="'/posts/'+fpost.slug" :aria-label="fpost.title">{{fpost.title}}</nuxt-link></h2>
-                                </div>
-                                <div class="tv-featured-posted-date">
-                                    <span class="posted-date"> {{ $moment(fpost.published_at).format('MM/DD/YYYY') }}</span>
-                                </div>
-                            </div>
-                        </div>
-						 
-                        
-    </component>
+										<nuxt-link :to="'/tag/'+tag.slug" v-for="tag in fpost.tags" :aria-label="tag.name"  v-bind:key="tag.slug">{{tag.name}}</nuxt-link>
+										
+									</div>
+									<div class="tv-featured-content-title">
+										<h2 class="tv-white-text"><nuxt-link :to="'/posts/'+fpost.slug" :aria-label="fpost.title">{{fpost.title}}</nuxt-link></h2>
+									</div>
+									<div class="tv-featured-posted-date">
+										<span class="posted-date"> {{ $moment(fpost.published_at).format('MM/DD/YYYY') }}</span>
+									</div>
+								</div>
+							</div>
+			</component>
+	
   </div>
+  <div class="skeletonslide" v-else>
+	  <div class="demo"></div>
+	  <div class="demo"></div>
+  </div>
+	
+	
             <!-----------End slider----------------->
 			 <!-----------Author Blog----------------->
             <section class="tv-author-block tv-section-padding">
@@ -56,7 +59,7 @@
                                 </div>
                                 <div class="post-extra-details">
                                     <div class="post-categories">
-										<nuxt-link :aria-label="tag.name" :to="'/tag/'+tag.slug" v-for="tag in fpost.tags">{{tag.name}}, </nuxt-link> 
+										<nuxt-link :aria-label="tag.name" :to="'/tag/'+tag.slug" v-for="tag in fpost.tags"  v-bind:key="tag.slug">{{tag.name}}, </nuxt-link> 
 										
 									</div>
                                     <div class="post-title">
@@ -113,7 +116,7 @@
                                         <div class="col-md-6 tv-post-section-right">
                                             <div class="post-extra-details">
                                                 <div class="post-categories">
-													<nuxt-link :to="'/tag/'+tag.slug" v-for="tag in post.tags" :aria-label="tag.name">{{tag.name}}, </nuxt-link>
+													<nuxt-link :to="'/tag/'+tag.slug" v-for="tag in post.tags" :aria-label="tag.name"  v-bind:key="tag.slug">{{tag.name}}, </nuxt-link>
 												</div>
                                                 <div class="post-title">
                                                     <h2><nuxt-link :to="'/posts/'+post.slug" :aria-label="post.title">{{post.title}}</nuxt-link></h2>
@@ -155,52 +158,7 @@
                                     </div>
                                     <div class="tv-about-me-profile text-center">
                                         <img :src="author.profile_image" :alt="author.name" class="" v-if="author.profile_image">
-                                        <div v-else><svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 482.974 482.974" style="enable-background:new 0 0 482.974 482.974;" xml:space="preserve">
-<g>
-	<g>
-		<path d="M155.504,204.774c4.4,28.6,26.5,65,62.8,77.8c14.9,5.2,31.2,5.3,46.1-0.1c35.7-12.9,58.5-49.2,63-77.7
-			c4.8-0.4,11.1-7.1,17.9-31.2c9.3-32.9-0.6-37.8-9-37c1.6-4.5,2.8-9.1,3.6-13.5c14.2-85.3-27.8-88.2-27.8-88.2s-7-13.4-25.3-23.5
-			c-12.3-7.3-29.4-12.9-51.9-11c-7.3,0.3-14.2,1.8-20.7,3.9l0,0c-8.3,2.8-15.9,6.9-22.8,11.7c-8.4,5.3-16.4,11.9-23.4,19.4
-			c-11.1,11.4-21,26.1-25.3,44.4c-3.6,13.7-2.8,28,0.2,43.4l0,0c0.8,4.5,2,9,3.6,13.5c-8.4-0.8-18.3,4.1-9,37
-			C144.404,197.674,150.704,204.374,155.504,204.774z"/>
-		<path d="M406.404,316.674c-51.1-13-92.6-42.2-92.6-42.2l-32.4,102.5l-6.1,19.3l-0.1-0.3l-5.3,16.4l-17.1-48.5
-			c42-58.6-8.5-58-11.3-57.9c-2.8-0.1-53.3-0.7-11.3,57.9l-17.1,48.5l-5.3-16.4l-0.1,0.3l-6.1-19.3l-32.5-102.5
-			c0,0-41.5,29.2-92.6,42.2c-38.1,9.7-39.9,53.7-38.4,75.4c0,0,2.2,29.5,4.4,42.5c0,0,74.4,48.3,199,48.4c124.6,0,199-48.4,199-48.4
-			c2.2-13,4.4-42.5,4.4-42.5C446.304,370.374,444.504,326.374,406.404,316.674z"/>
-	</g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-<g>
-</g>
-</svg></div>
+                                       <img src="~assets/images/images.svg" alt="author" class="" v-else>
                                     </div>
                                     <div class="tv-about-me-content text-center">
 										
@@ -232,7 +190,7 @@
 							<div class="tv-widget-category-box">
 								<ul class="tv-widget-category-list">
 								<li  v-for="tag in tags" >									
-									<nuxt-link :to="'/tag/'+tag.slug">{{tag.name}} 
+									<nuxt-link :to="'/tag/'+tag.slug"  v-bind:key="tag.slug">{{tag.name}} 
 									<span class="count">{{tag.count}}</span></nuxt-link>
 								</li>                                           
 								</ul>

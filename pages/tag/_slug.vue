@@ -23,7 +23,7 @@
 			<div class="row tv-blog-style-grid">
 		
 				
-                        <div class="col-lg-4 col-md-6 col-sm-6" v-for="fpost in posts">
+                        <div class="col-lg-4 col-md-6 col-sm-6" v-for="fpost in posts" v-bind:key="fpost.slug">
                             <article class="author-blog">
                                 <div class="post-thumnail">
                                     <div class="post-thumnail-box">
@@ -36,7 +36,7 @@
                                 </div>
                                 <div class="post-extra-details">
                                     <div class="post-categories">
-										<nuxt-link :to="'/tag/'+tag.slug" v-for="tag in fpost.tags.slice(0,5)">{{tag.name}}, </nuxt-link> 
+										<nuxt-link :to="'/tag/'+tag.slug" v-for="tag in fpost.tags.slice(0,5)" v-bind:key="tag.slug">{{tag.name}}, </nuxt-link> 
 										
 									</div>
                                     <div class="post-title">

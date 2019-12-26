@@ -57,7 +57,18 @@ export default {
   */
   modules: [
 	   '@nuxtjs/pwa',
-	   'bootstrap-vue/nuxt'
+	   'bootstrap-vue/nuxt',
+	   [
+		  "nuxt-compress",
+		  {
+			gzip: {
+			  cache: true
+			},
+			brotli: {
+			  threshold: 10240
+			}
+		  }
+		]
   ],
   /*
   ** Build configuration

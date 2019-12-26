@@ -27,7 +27,7 @@
                                         <div class="post-extra-details">
                                             <div class="post-categories">
 												
-												<nuxt-link :to="'/tag/'+tag.slug" v-for="tag in post.tags">{{tag.name}}</nuxt-link> 
+												<nuxt-link :to="'/tag/'+tag.slug" v-for="tag in post.tags"  v-bind:key="tag.slug">{{tag.name}}</nuxt-link> 
 											</div>
                                             <div class="post-title">
                                                 <h2>{{post.title}}</h2>
@@ -47,7 +47,7 @@
                                     
                                     <div class="tv-tag-list tv-dark-color">
                                        
-                                       <nuxt-link :to="'/tag/'+tag.slug" class="tv-tag-link" v-for="tag in post.tags">{{tag.name}}</nuxt-link> 
+                                       <nuxt-link :to="'/tag/'+tag.slug" class="tv-tag-link" v-for="tag in post.tags"  v-bind:key="tag.slug">{{tag.name}}</nuxt-link> 
                                     </div>
 
                                 </article>
@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="tv-widget-category-box">
                                         <ul class="tv-widget-category-list">
-                                           <li  v-for="tag in tags" >									
+                                           <li  v-for="tag in tags"  v-bind:key="tag.slug">									
 											<nuxt-link :to="'/tag/'+tag.slug">{{tag.name}} <span class="count">{{tag.count.posts}}</span></nuxt-link></li>
                                         </ul>
 										<div class="view-all">
