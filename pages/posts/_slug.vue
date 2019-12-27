@@ -38,6 +38,11 @@
 											<div class="post-content" v-html="post.html">
                                               
                                             </div>
+											
+											<div class="post-content-pdf" v-html="pdf">
+                                              
+                                            </div>
+											
                                             <div class="single-post-meta">
                                                 <span class="post-author" v-for="author in post.authors" >
 													<a :href="'/author/'+author.slug">{{author.name}}</a>
@@ -106,9 +111,29 @@ data: () => ({
     slug: '',
     post: '',
 	tags: '',
+	htmls: '',
+	pdf: '',
 	bg: backgroundUrl,
     
   }),
+  computed: {
+			url() {
+			var html = this.htmls;
+			var target = 'iframe';
+			if (!html || !target) {
+					return false;
+				}
+				else {
+					var fragment = document.createDocumentFragment(),
+						container = document.createElement('div');
+					container.innerHTML = html;
+					fragment.appendChild(container);
+					var targets = fragment.firstChild.getElementsByTagName(target);
+					
+					return '<a href="'+targets[0].src+'" download="knowzone" target="_blank"> Download PDF </a>';        
+				}
+			}
+		},
   methods: { 
   
 		getPost: function(){
@@ -116,11 +141,13 @@ data: () => ({
 		 
 			  axios.
 			  get(HOST_URL+'/posts/slug/'+this.slug+'?key='+API_KEY+'&include=tags,authors&formats=html,plaintext')
-			.then(response => {	
+			.then(response => {			
+				this.post = response.data.posts[0]
+				this.loading = false;
+				this.htmls = this.post.html;
+					
+				this.pdf = this.url;		
 			
-			  this.post = response.data.posts[0]
-			  this.loading = false
-			  console.log(this.post);
 			})
 			.catch(error => {
 			  console.log(error)
@@ -142,11 +169,13 @@ data: () => ({
 		},
 		
 		
+		
     },
   beforeMount(){
     this.slug;
     this.getPost();
     this.getTags();
+   
 	
   }
  
