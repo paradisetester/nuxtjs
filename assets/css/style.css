@@ -1293,6 +1293,13 @@ img {
     border: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 11px;
 }
+.post-content-pdf a {
+    padding: 10px;
+    background: #ccc;
+    display: inline-block;
+    margin: 10px 0px;
+    border-radius: 4px;
+}
 .tv-tag-link:hover {
     border-color: #625809;
 }
