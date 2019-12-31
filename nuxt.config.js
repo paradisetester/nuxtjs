@@ -104,6 +104,7 @@ export default {
 	  short_name: 'Knowzone',
 	  lang: 'en',
 	  display: 'standalone',
+	  start_url: 'https://knowzone.netlify.com/',
 	},
   /*
   ** Handle external assets
